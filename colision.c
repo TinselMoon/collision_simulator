@@ -9,9 +9,9 @@ int main(int argc, char **argv){
     const int screenWidth = atoi(argv[1]);
     const int screenHeight = atoi(argv[2]);
     System *s = create();
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < 20; i++)
         insert_particle(s, screenWidth, screenHeight);
-    
+
     InitWindow(screenWidth, screenHeight, "colisions simulator");
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
@@ -24,9 +24,10 @@ int main(int argc, char **argv){
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
-            
-            ClearBackground(RAYWHITE);
-            //DrawCircleV(teste->p_pos, circleRad, RED);
+
+        ClearBackground(RAYWHITE);
+        draw_particles(s);
+        //DrawCircleV(teste->p_pos, circleRad, RED);
 
         EndDrawing();
         //----------------------------------------------------------------------------------

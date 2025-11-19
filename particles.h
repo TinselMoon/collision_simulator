@@ -20,3 +20,4 @@ typedef struct{
 System* create();
 void insert_particle(System *s, int screenWidth, int screenHeight);
 void destroy (System *l);
+void draw_particles(System *s);

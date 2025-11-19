@@ -39,3 +39,9 @@ void destroy (System *l) {
         }
     }
 }
+
+void draw_particles(System *s){
+    for(Particles *l = s->head; l != NULL; l=l->next){
+        DrawCircleV(l->p_pos, CIRCLE_RAD, RED);
+    }
+}
