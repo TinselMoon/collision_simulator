@@ -29,6 +29,7 @@ int main(int argc, char **argv){
         BeginDrawing();
 
         ClearBackground(RAYWHITE);
+        update_pos(s, screenWidth, screenHeight);
         draw_particles(s);
         //DrawCircleV(teste->p_pos, circleRad, RED);
 

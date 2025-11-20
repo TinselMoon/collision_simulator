@@ -3,6 +3,7 @@
 #define PARTICLE
 #endif
 
+double dt = (double)1/60;
 Color values[] = {DARKGRAY, MAROON, ORANGE, DARKGREEN, DARKBLUE, DARKPURPLE,
                     DARKBROWN, GRAY, RED, GOLD, LIME, BLUE, VIOLET, BROWN,
                     LIGHTGRAY, PINK, YELLOW, GREEN, SKYBLUE, PURPLE, BEIGE};
@@ -14,14 +15,21 @@ System* create () {
     return l;
 }
 
+void update_pos(System *s, int screenWidth, int screenHeight){
+    for(Particles *p = s->head; p != NULL; p = p->next){
+        p->p_pos.x += p->p_vel.x*dt;
+        p->p_pos.y += p->p_vel.y*dt;
+    }
+}
+
 void insert_particle(System *s, int screenWidth, int screenHeight){
     Particles *p = (Particles *)malloc(sizeof(Particles));
     p->next = NULL;
     p->radius = (rand() % (CIRCLE_RAD_MAX - CIRCLE_RAD_MIN))+CIRCLE_RAD_MIN;
     p->p_pos.x = rand() % (screenWidth - 2*p->radius) + p->radius;
     p->p_pos.y = rand() % (screenHeight - 2*p->radius) + p->radius;
-    p->p_vel.x = rand() % MAX_SPEED;
-    p->p_vel.y = rand() % MAX_SPEED;
+    p->p_vel.x = (-MAX_SPEED/2) + rand() % MAX_SPEED;
+    p->p_vel.y = (-MAX_SPEED/2) + rand() % MAX_SPEED;
     p->color = values[rand()%21];
     if(s->head == NULL){
         s->head = p;

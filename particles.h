@@ -5,7 +5,7 @@
 
 #define CIRCLE_RAD_MAX 100
 #define CIRCLE_RAD_MIN 40
-#define MAX_SPEED 501
+#define MAX_SPEED 1001
 
 typedef struct particle{
     Vector2 p_pos;
@@ -24,3 +24,4 @@ System* create();
 void insert_particle(System *s, int screenWidth, int screenHeight);
 void destroy (System *l);
 void draw_particles(System *s);
+void update_pos(System *s, int screenWidth, int screenHeight);
