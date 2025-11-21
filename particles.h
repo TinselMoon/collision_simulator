@@ -7,7 +7,8 @@
 
 #define CIRCLE_RAD_MAX 80
 #define CIRCLE_RAD_MIN 40
-#define MAX_SPEED 1001
+#define MAX_SPEED 1501
+#define TARGET_FPS 144
 
 typedef struct particle{
     Vector2 p_pos;
@@ -29,6 +30,6 @@ void destroy (System *l);
 void draw_particles(System *s);
 void update_pos(System *s, int screenWidth, int screenHeight);
 void fix_contacts(System *s, int screenWidth, int screenHeight);
-void ResolveCollision(Particles *p1, Particles *p2);
+void resolve_collision(Particles *p1, Particles *p2);
 void remove_particle(System *s);
 bool is_empty(System *s);

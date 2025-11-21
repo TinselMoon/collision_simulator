@@ -3,7 +3,7 @@
 #define PARTICLE
 #endif
 
-double dt = (double)1/60;
+double dt = (double)1/TARGET_FPS;
 Color values[] = {DARKGRAY, MAROON, ORANGE, DARKGREEN, DARKBLUE, DARKPURPLE,
                     DARKBROWN, GRAY, RED, GOLD, LIME, BLUE, VIOLET, BROWN,
                     LIGHTGRAY, PINK, YELLOW, GREEN, SKYBLUE, PURPLE, BEIGE};
@@ -78,7 +78,7 @@ void draw_particles(System *s){
     }
 }
 
-void ResolveCollision(Particles *p1, Particles *p2) {
+void resolve_collision(Particles *p1, Particles *p2) {
     double dx = p2->p_pos.x - p1->p_pos.x;
     double dy = p2->p_pos.y - p1->p_pos.y;
     double distSq = dx*dx + dy*dy;
@@ -138,7 +138,7 @@ void fix_contacts(System *s, int screenWidth, int screenHeight){
                 p2->p_pos.y -= norm_y * (overlap * 0.5);
 
                 // Update velocities
-                ResolveCollision(p1,p2);
+                resolve_collision(p1,p2);
             }
         }
     }
