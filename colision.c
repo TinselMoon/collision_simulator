@@ -4,8 +4,8 @@
 #endif
 
 int main(int argc, char **argv){
-    if(argc < 2){
-        printf("Error, no enough information about screen width and height\n");
+    if(argc < 3){
+        printf("Error, no enough information\nRun: %s [width] [height] [num of particles]\n", argv[0]);
         exit(0);
     }
     srand(time(NULL));
