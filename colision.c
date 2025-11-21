@@ -26,13 +26,19 @@ int main(int argc, char **argv){
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
-
-        ClearBackground(RAYWHITE);
-        update_pos(s, screenWidth, screenHeight);
-        for(int i = 0; i < 4; i++)fix_contacts(s, screenWidth, screenHeight);
-        draw_particles(s);
-        //DrawCircleV(teste->p_pos, circleRad, RED);
-
+        if (IsKeyPressed(KEY_I)){
+            insert_particle(s, screenWidth, screenHeight);
+        }
+        if(!is_empty(s)){
+            ClearBackground(RAYWHITE);
+            if (IsKeyPressed(KEY_R)){
+                remove_particle(s);
+            }
+            update_pos(s, screenWidth, screenHeight);
+            for(int i = 0; i < 4; i++)fix_contacts(s, screenWidth, screenHeight);
+            draw_particles(s);
+            //DrawCircleV(teste->p_pos, circleRad, RED);
+        }
         EndDrawing();
         //----------------------------------------------------------------------------------
     }

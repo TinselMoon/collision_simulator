@@ -24,6 +24,22 @@ void update_pos(System *s, int screenWidth, int screenHeight){
     }
 }
 
+bool is_empty(System *s){
+    if(s->head == NULL){
+        return 1;
+    }
+    return 0;
+}
+
+void remove_particle(System *s){
+    Particles *remove = s->head;
+    s->head = s->head->next;
+    free(remove);
+    if(s->head == NULL){
+        s->tail = NULL;
+    }
+}
+
 void insert_particle(System *s, int screenWidth, int screenHeight){
     Particles *p = (Particles *)malloc(sizeof(Particles));
     p->next = NULL;

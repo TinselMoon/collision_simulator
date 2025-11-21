@@ -3,8 +3,9 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <stdbool.h>
 
-#define CIRCLE_RAD_MAX 100
+#define CIRCLE_RAD_MAX 80
 #define CIRCLE_RAD_MIN 40
 #define MAX_SPEED 1001
 
@@ -29,3 +30,5 @@ void draw_particles(System *s);
 void update_pos(System *s, int screenWidth, int screenHeight);
 void fix_contacts(System *s, int screenWidth, int screenHeight);
 void ResolveCollision(Particles *p1, Particles *p2);
+void remove_particle(System *s);
+bool is_empty(System *s);
