@@ -1,6 +1,6 @@
-# Simulador
+# Simulador de colisões elásticas
 
-Este projeto requer a biblioteca **Raylib** para funcionar. Siga as instruções abaixo para instalar as dependências e compilar o projeto.
+Este projeto requer a biblioteca **Raylib** para funcionar. Siga as instruções abaixo para instalar as dependências, compilar e executar o projeto.
 
 ## 🛠️ Dependências Necessárias
 
@@ -10,7 +10,29 @@ Este projeto requer a biblioteca **Raylib** para funcionar. Siga as instruções
 
 ### Arch Linux
 
-Para instalar a Raylib no Arch Linux, execute o seguinte comando no terminal:
+Para instalar a Raylib no Arch Linux, execute o comando no terminal:
 
-```bash
+\`\`\`bash
 sudo pacman -S raylib
+\`\`\`
+
+## 🔨 Compilação
+
+Para compilar o código, execute o comando na raiz do projeto:
+
+\`\`\`bash
+make
+\`\`\`
+
+## ▶️ Execução
+
+Para executar o simulador, é necessário fornecer os parâmetros de largura, altura e número de partículas:
+
+\`\`\`bash
+./colision [width] [height] [num particles]
+\`\`\`
+
+**Exemplo de uso:**
+\`\`\`bash
+./colision 800 600 100
+\`\`\`
